@@ -9,6 +9,7 @@ import java.awt.Component;
 import java.awt.Frame;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
@@ -20,7 +21,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.io.IOException;
 
-public class SimonSays extends KeyAdapter {
+public class SimonSays extends KeyAdapter implements KeyListener{
 
 	HashMap<Integer, String> images = new HashMap<Integer, String>();
 	private int imageIndex;
@@ -48,9 +49,13 @@ public class SimonSays extends KeyAdapter {
 
 	public void keyPressed(KeyEvent e) {
 		// 15. Make a points variable to track the score.
-
+			int score = 0;
 		// 16. If the keyCode matches the imageIndex and "Simon says"
-
+			if(e.getKeyCode()==imageIndex && simonSays){
+				
+			}
+				
+			
 		// 17. Increase the value of score
 
 		// 18. Use the speak method to tell the user they were correct
@@ -89,16 +94,23 @@ public class SimonSays extends KeyAdapter {
 			frame.pack();
 		// 10. Set the defaultCloseOperation of your frame to
 		//JFrame.EXIT_ON_CLOSE
-			
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// 11. Add a key listener to the frame
-				
+			frame.addKeyListener(this);
 		// 12. Create a new instance of Random
-
+			Random random = new Random();
 		// 13. Use the Random and the speak method to either say
 		// "Simon says press this key" or "Press this key"
-
+			if(random.nextInt(10)>=5) {
+				speak("Simon says press this key");
+				simonSays = true;
+			} else {
+				speak("Press this key");
+				simonSays = false;
+			}
+			
 		// 14. Above, set the value of simonSays to true/false appropriately
-
+			
 	}
 
 	private Component getNextRandomImage() {
