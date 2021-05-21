@@ -52,8 +52,21 @@ public class SimonSays extends KeyAdapter implements KeyListener{
 			int score = 0;
 		// 16. If the keyCode matches the imageIndex and "Simon says"
 			if(e.getKeyCode()==imageIndex && simonSays){
+				score++;
+				speak("That's correct!");
+			}else if(e.getKeyCode()!=imageIndex && !simonSays) {
+				score++;
+				speak("That's correct!");
+				tries++;
+			}
+			if(tries>9) {
+				JOptionPane.showMessageDialog(null, "Game Over!");
+				JOptionPane.showMessageDialog(null, "You're score is" +score);
+				System.exit(0);
+				frame.dispose();
 				
 			}
+			showImage();
 				
 			
 		// 17. Increase the value of score
@@ -74,10 +87,11 @@ public class SimonSays extends KeyAdapter implements KeyListener{
 		// 26. Tell the user their score
 
 		// 27. Exit the program
-
+			
 		// 23. Dispose of the frame
-
+			
 		// 24. Call the showImage method to show a new image
+			
 	}
 
 	private void showImage() {
