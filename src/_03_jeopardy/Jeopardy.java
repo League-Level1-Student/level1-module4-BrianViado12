@@ -69,7 +69,7 @@ public class Jeopardy implements ActionListener {
 			
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
-
+			
 		// 10. Add the secondButton to the quizPanel
 
 		// 11. Add action listeners to the buttons (2 lines of code)
@@ -100,8 +100,8 @@ public class Jeopardy implements ActionListener {
 		// Increment the buttonCount (this should make the layout vertical)
 			buttonCount++;
 		// Return your new button instead of the temporary button
+		return button1;
 		
-		return new JButton("temporary button");
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -111,7 +111,7 @@ public class Jeopardy implements ActionListener {
 
 		JButton buttonPressed = (JButton) e.getSource();
 		// If the buttonPressed was the firstButton
-
+			
 			// Call the askQuestion() method
  
 		// Complete the code in the askQuestion() method. When you play the game, the score should change.
