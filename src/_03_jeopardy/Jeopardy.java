@@ -69,12 +69,18 @@ public class Jeopardy implements ActionListener {
 			
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
-			secondButton = createButton("$300");
+			secondButton = createButton("$500");
 		// 10. Add the secondButton to the quizPanel
 			quizPanel.add(secondButton);
+			thirdButton = createButton("$600");
+			quizPanel.add(thirdButton);
+			fourthButton = createButton("$700");
+			quizPanel.add(fourthButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
 			firstButton.addActionListener(this);
 			secondButton.addActionListener(this);
+			thirdButton.addActionListener(this);
+			fourthButton.addActionListener(this);
 		// 12. Write the code to complete the actionPerformed() method below
 
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
@@ -96,8 +102,10 @@ public class Jeopardy implements ActionListener {
 		
 		// Create a new JButton
 		JButton button1 = new JButton();
+		
 		// Set the text of the button to the dollarAmount
-			button1.setText("$400");
+			button1.setText("$100");
+		
 		// Increment the buttonCount (this should make the layout vertical)
 			buttonCount++;
 		// Return your new button instead of the temporary button
@@ -113,7 +121,17 @@ public class Jeopardy implements ActionListener {
 		JButton buttonPressed = (JButton) e.getSource();
 		// If the buttonPressed was the firstButton
 			if(firstButton==e.getSource()) {
-				askQuestion("How much feet is in 1 yard?", "3 ft", 100);
+				askQuestion("What is the powerhouse of a cell?", "Mitochondria", 100);
+				firstButton.setText("");
+			} else if(secondButton==e.getSource()) {
+				askQuestion("The concept of gravity was discovered by which famous physicist?", "Isaac Newton", 200);
+				secondButton.setText("");
+			} else if(thirdButton==e.getSource()) {
+				askQuestion("How many bones are in the human body?","206", 300);
+				thirdButton.setText("");
+			} else if(fourthButton==e.getSource()) {
+				askQuestion("Humans and chimpanzees share roughly how much DNA?", "98%", 400);
+				fourthButton.setText("");
 			}
 			// Call the askQuestion() method
  
@@ -124,7 +142,7 @@ public class Jeopardy implements ActionListener {
 			// Call the askQuestion() method with a harder question
 
 		// Clear the text on the button that was pressed (set the button text to nothing)
-
+			
 	}
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
@@ -132,18 +150,19 @@ public class Jeopardy implements ActionListener {
 		// Use the playJeopardyTheme() method to play music while the use thinks of an answer
 		playJeopardyTheme();
 		// Remove this temporary message and replace it with a pop-up that asks the user the question
-		JOptionPane.showMessageDialog(null, "this is where the question will be asked");
+		String answer = JOptionPane.showInputDialog(question);
 		
 		// Stop the theme music when they have entered their response. 
-		
+		stopJeopardyTheme();
 		// If the answer is correct
-		if(question==correctAnswer) {
+		if(correctAnswer.equals(answer)) {
 			score += prizeMoney;
 			JOptionPane.showMessageDialog(null, "That is correct!");
 		} else {
 			score -= prizeMoney;
-			JOptionPane.showMessageDialog(null, "Incorrect. The answer was" +correctAnswer);
+			JOptionPane.showMessageDialog(null, "Incorrect. The answer was " +correctAnswer);
 		}
+		updateScore();
 			// Increase the score by the prizeMoney
 
 			// Pop up a message to tell the user they were correct
