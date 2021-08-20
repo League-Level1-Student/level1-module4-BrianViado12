@@ -31,7 +31,7 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
     FortuneTeller() throws Exception {
    	 // 1. Choose an image for your fortune teller and put it in your default package
    	 fortuneTellerImage = ImageIO.read(getClass().getResource("fortune teller.png"));
-  
+   	 //showAnotherImage("FortuneTeller.jpg");
    	 // 2. Adjust the frameWidth and frameHeight variables to fit your image nicely (doesn’t need a new line of code)
      // 3. Complete the begin() method in the FortuneTellerRunner class
  	 // 4. add a mouse listener to the frame
@@ -55,7 +55,7 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
    		 // 8. Find a spooky sound and put it in your _07_fortune_teller package (freesound.org)
    		  play("src/_07_fortune_teller/creepy-noise.wav");
    		 // 9. Play the sound
-         
+   		showAnotherImage("FortuneTeller.jpg");
    		 // 10. Insert your completed Magic 8 ball code here
    			int number = new Random().nextInt(4);
    			System.out.println(number);

@@ -16,6 +16,6 @@ public class FortuneTellerRunner {
     static void begin() {
       	 // Welcome the user. Give them a hint for the secret location.
     	JOptionPane.showMessageDialog(null, "Welcome! Find the Picture!");
-    	JOptionPane.showMessageDialog(null, "Hint: The Picture is clear white.");
+    	JOptionPane.showMessageDialog(null, "Hint: The Picture is in the 200 coordinates.");
     }
 }
